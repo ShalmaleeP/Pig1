@@ -1224,7 +1224,9 @@ public class GruntParser extends PigScriptParser {
         String[] tokens = new String[3];
         tokens[0] = hcatBin;
         tokens[1] = "-e";
-        tokens[2] = cmd.substring(cmd.indexOf("sql")).substring(4);
+	int sql_index = Math.max(cmd.indexOf("sql"), cmd.indexOf("SQL"));
+        tokens[2] = cmd.substring(sql_index).substring(4);
+        
 
         // create new environment = environment - HADOOP_CLASSPATH
         // This is because of antlr version conflict between Pig and Hive
