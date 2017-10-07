@@ -1224,7 +1224,8 @@ public class GruntParser extends PigScriptParser {
         String[] tokens = new String[3];
         tokens[0] = hcatBin;
         tokens[1] = "-e";
-	int sql_index = Math.max(cmd.indexOf("sql"), cmd.indexOf("SQL"));
+	String temp = cmd.toLowerCase();
+	int sql_index = temp.indexOf("sql");
         tokens[2] = cmd.substring(sql_index).substring(4);
         
 
